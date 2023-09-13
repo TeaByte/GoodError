@@ -54,11 +54,10 @@ class GoodError:
             trace_list.append(trace)
             trace = trace.tb_next
 
-        module_name = exc_traceback.tb_frame.f_code.co_qualname
         exception_name = exc_type.__name__
         exception_message = str(exc_value).capitalize()
 
-        print(f"{self.__c(module_name, self.TITLE)}, {self.__c(f'{exception_name}({exception_message})', self.ERROR)}")
+        print(f"{self.__c(f'{exception_name}({exception_message})', self.ERROR)}")
 
         for i, trace_item in enumerate(trace_list):
             line_number = trace_item.tb_lineno
